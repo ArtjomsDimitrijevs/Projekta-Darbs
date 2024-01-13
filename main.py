@@ -1,6 +1,7 @@
 import customtkinter
 import selenium
 
+my_font = customtkinter.CTkFont(family="<Roboto>", size="<size in px>", "<optional keyword arguments>")
 
 customtkinter.set_appearance_mode("dark")
 customtkinter.set_default_color_theme("dark-blue")
