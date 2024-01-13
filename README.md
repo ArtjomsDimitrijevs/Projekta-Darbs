@@ -1,2 +1,1 @@
 # Projekta-Darbs
-Kino
