@@ -25,17 +25,21 @@ def on_click():
     genre = data.get('Genre', 'No  info')
     plot = data.get('Plot', 'No  info')
     ratings = data.get('Ratings', [{'Value': 'No  info'}])
-    #label.configure(text=(movieTitle, year, runtime, genre, plot,  ratings))
+
     text_widget.delete('1.0', 'end')
     text_widget.insert('end', f"Title: {movieTitle}\n\nYear: {year}\n\nRuntime: {runtime}\n\nGenre: {genre}\n\nPlot: {plot}\n\nRatings: {ratings}")
     text_widget.configure(state="disabled")
 
-
+    TrailerButton = customtkinter.CTkButton(master=frame, text="Open trailer", command=open_trailer)
+    TrailerButton.pack(pady=12, padx=10)
 
     root.focus()
 
 def on_enter(event):
     on_click()
+
+
+def open_trailer():
 
 
 
