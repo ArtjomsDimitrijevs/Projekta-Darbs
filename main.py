@@ -1,7 +1,6 @@
 import customtkinter
+from customtkinter import CTkFont
 import selenium
-
-my_font = customtkinter.CTkFont(family="<Roboto>", size="<size in px>", "<optional keyword arguments>")
 
 customtkinter.set_appearance_mode("dark")
 customtkinter.set_default_color_theme("dark-blue")
@@ -32,7 +31,7 @@ entryBox.pack(pady=12, padx=20)
 button = customtkinter.CTkButton(master=frame, text="Find", command=on_click)
 button.pack(pady=12, padx=10)
 
-label = customtkinter.CTkLabel(master=frame, text="Film Information")
+label = customtkinter.CTkLabel(master=frame, text="Film Information", font=("TkTextFont", 16))
 label.pack(pady=12, padx = 10)
 
 
