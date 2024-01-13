@@ -1,5 +1,4 @@
 import customtkinter
-from customtkinter import CTkFont
 import selenium
 
 customtkinter.set_appearance_mode("dark")
