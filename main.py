@@ -1,4 +1,5 @@
 import customtkinter
+from customtkinter import CTkTextbox
 import selenium
 import requests
 
@@ -17,20 +18,26 @@ def on_click():
     response = requests.get(url)
     data = response.json()
 
+    text_widget.configure(state="normal")
     movieTitle = data.get('Title', 'No  info')
     year = data.get('Year', 'No  info')
     runtime = data.get('Runtime', 'No  info')
     genre = data.get('Genre', 'No  info')
     plot = data.get('Plot', 'No  info')
     ratings = data.get('Ratings', [{'Value': 'No  info'}])
-    label.configure(text=(movieTitle, year, runtime, genre, plot,  ratings))
+    #label.configure(text=(movieTitle, year, runtime, genre, plot,  ratings))
+    text_widget.delete('1.0', 'end')
+    text_widget.insert('end', f"Title: {movieTitle}\n\nYear: {year}\n\nRuntime: {runtime}\n\nGenre: {genre}\n\nPlot: {plot}\n\nRatings: {ratings}")
+    text_widget.configure(state="disabled")
+
+
+
     root.focus()
-    return movieTitle, year, runtime, genre, plot, ratings
-
-
 
 def on_enter(event):
     on_click()
+
+
 
 
 frame = customtkinter.CTkFrame(master=root)
@@ -46,8 +53,10 @@ entryBox.pack(pady=12, padx=20)
 button = customtkinter.CTkButton(master=frame, text="Find", command=on_click)
 button.pack(pady=12, padx=10)
 
-label = customtkinter.CTkLabel(master=frame, text="Film Information", font=("TkTextFont", 16))
-label.pack(pady=12, padx = 10)
+text_widget = CTkTextbox(master=frame, width=500, height=250)
+text_widget.configure(state="disabled")
+text_widget.pack(pady=12, padx=10)
+
 
 
 root.mainloop()
