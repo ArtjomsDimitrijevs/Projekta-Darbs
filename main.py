@@ -10,10 +10,24 @@ root.title("Movie Finder")
 root.geometry("500x500")
 
 def on_click():
-   
+    movieTitle = entryBox.get()
+    #label.configure(text=movieTitle)
+    ##### using OMDb API
+    url = f"http://www.omdbapi.com/?t={movieTitle}&apikey=7f56c7e2"
+    response = requests.get(url)
+    data = response.json()
 
+    movieTitle = data.get('Title', 'No  info')
+    year = data.get('Year', 'No  info')
+    runtime = data.get('Runtime', 'No  info')
+    genre = data.get('Genre', 'No  info')
+    plot = data.get('Plot', 'No  info')
+    ratings = data.get('Ratings', [{'Value': 'No  info'}])
+    label.configure(text=(movieTitle, year, runtime, genre, plot,  ratings))
     root.focus()
     return movieTitle, year, runtime, genre, plot, ratings
+
+
 
 def on_enter(event):
     on_click()
