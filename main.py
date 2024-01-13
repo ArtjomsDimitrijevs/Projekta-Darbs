@@ -19,15 +19,16 @@ def on_click():
     data = response.json()
 
     text_widget.configure(state="normal")
-    movieTitle = data.get('Title', 'No  info')
-    year = data.get('Year', 'No  info')
-    runtime = data.get('Runtime', 'No  info')
-    genre = data.get('Genre', 'No  info')
-    plot = data.get('Plot', 'No  info')
-    ratings = data.get('Ratings', [{'Value': 'No  info'}])
+    movieTitle = data.get('Title', 'No info')
+    year = data.get('Year', 'No info')
+    runtime = data.get('Runtime', 'No info')
+    genre = data.get('Genre', 'No info')
+    plot = data.get('Plot', 'No info')
+    ratings = data.get('Ratings', [{'Value': 'No info'}])
+    first_rating = ratings[0]['Value'] if ratings else 'No info'
 
     text_widget.delete('1.0', 'end')
-    text_widget.insert('end', f"Title: {movieTitle}\n\nYear: {year}\n\nRuntime: {runtime}\n\nGenre: {genre}\n\nPlot: {plot}\n\nRatings: {ratings}")
+    text_widget.insert('end', f"Title: {movieTitle}\n\nYear: {year}\n\nRuntime: {runtime}\n\nGenre: {genre}\n\nPlot: {plot}\n\nRatings: {first_rating}")
     text_widget.configure(state="disabled")
 
     TrailerButton = customtkinter.CTkButton(master=frame, text="Open trailer", command=open_trailer)
@@ -40,7 +41,7 @@ def on_enter(event):
 
 
 def open_trailer():
-
+    ### TO-DO: open trailer on IMDb
 
 
 
@@ -61,6 +62,6 @@ text_widget = CTkTextbox(master=frame, width=500, height=250)
 text_widget.configure(state="disabled")
 text_widget.pack(pady=12, padx=10)
 
-
+### TO_DO: write info about movie in excel document to watch it later
 
 root.mainloop()
