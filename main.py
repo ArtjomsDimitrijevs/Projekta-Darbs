@@ -8,15 +8,17 @@ from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.common.by import By
 
-customtkinter.set_appearance_mode("dark")
+customtkinter.set_appearance_mode("system")
 customtkinter.set_default_color_theme("dark-blue")
 
 root = customtkinter.CTk()
 root.title("Movie Finder")
-root.geometry("500x500")
+root.geometry("500x600")
 
+title = year = runtime = genre = plot = first_rating = ""
 
 def on_click():
+    global title, year, runtime, genre, plot, first_rating
     movieTitle = entryBox.get()
     ##### using OMDb API
     url = f"http://www.omdbapi.com/?t={movieTitle}&apikey=7f56c7e2"
@@ -38,20 +40,19 @@ def on_click():
     
     if title=='No info':
         messagebox.showerror("Error", "This movie doesn't exist")
+        TrailerButton.pack_forget()
+        ExcelWriteButton.pack_forget()
     else: 
-        TrailerButton = customtkinter.CTkButton(master=frame, text="Open trailer", command=open_trailer)
         TrailerButton.pack(pady=12, padx=10)
-
+        ExcelWriteButton.pack(pady=12, padx=10)
 
     root.focus()
 
 def on_enter(event):
     on_click()
 
-
 def open_trailer():
-    global title
-    movieTitle = entryBox.get()
+    global title, year
     service = Service()
     option = webdriver.ChromeOptions()
     driver = webdriver.Chrome(service=service, options=option)
@@ -67,18 +68,23 @@ def open_trailer():
     time.sleep(1)
 
     find=driver.find_element(By.ID, "suggestion-search")
-    find.send_keys(movieTitle)
+    find.send_keys(title, " ", year)
     time.sleep(2)
     find=driver.find_element(By.CLASS_NAME, "ipc-icon.ipc-icon--play-circle-outline-inline.ipc-lockup-overlay__icon")
     find.click()
 
     input()
 
+def save_to_excel():
+    global title, year, runtime, genre, plot, first_rating
+    #print(title, year, runtime, genre, first_rating)
 
 frame = customtkinter.CTkFrame(master=root)
 frame.pack(pady=0, padx=0, fill="both", expand=True)
 
 label = customtkinter.CTkLabel(master=frame, text="Finding information about movie or series", font=("TkTextFont", 20))
+label.pack(pady=12, padx=10)
+label = customtkinter.CTkLabel(master=frame, text="You should write full name of movie in english", font=("TkTextFont", 14))
 label.pack(pady=12, padx=10)
 
 entryBox = customtkinter.CTkEntry(master=frame, placeholder_text="Enter movie or series name", font=("TkTextFont", 16), width=208, height=20)
@@ -92,6 +98,10 @@ text_widget = CTkTextbox(master=frame, width=500, height=250)
 text_widget.configure(state="disabled")
 text_widget.pack(pady=12, padx=10)
 
+TrailerButton = customtkinter.CTkButton(master=frame, text="Open trailer", command=open_trailer)
+TrailerButton.pack_forget()
+ExcelWriteButton = customtkinter.CTkButton(master=frame, text="Save to Excel document", command=save_to_excel)
+ExcelWriteButton.pack_forget()
 
 ### TO_DO: write info about movie in excel document to watch it later
 
