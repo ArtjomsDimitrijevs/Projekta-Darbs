@@ -7,6 +7,9 @@ import time
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.common.by import By
+from openpyxl import Workbook, load_workbook 
+import os
+import pandas as pd
 
 customtkinter.set_appearance_mode("system")
 customtkinter.set_default_color_theme("dark-blue")
@@ -78,6 +81,39 @@ def open_trailer():
 def save_to_excel():
     global title, year, runtime, genre, plot, first_rating
     #print(title, year, runtime, genre, first_rating)
+    filepath = "movies.xlsx"
+    fullpath = os.path.join(os.path.dirname(__file__), filepath)
+
+    if os.path.isfile(fullpath):
+        wb = load_workbook(fullpath)
+    else:
+        wb = Workbook()
+        wb.save(fullpath)
+        wb = load_workbook(fullpath)
+
+    ws = wb.active
+    ws.column_dimensions['A'].width = 35
+    ws.column_dimensions['B'].width = 10
+    ws.column_dimensions['C'].width = 10
+    ws.column_dimensions['D'].width = 35
+    ws['A1'] = "Title"
+    ws['B1'] = "Runtime"
+    ws['C1'] = "Rating"
+    ws['D1'] = "Genre"
+    for row in range(2, ws.max_row + 2):  # Добавляем +2, чтобы проверить строку после последней строки с записью
+        cell_value = ws['A' + str(row)].value
+        if cell_value is None or str(cell_value).strip() == "":
+            print(title)
+            ws['A' + str(row)] = title
+            ws['B' + str(row)] = runtime
+            ws['C' + str(row)] = first_rating
+            ws['D' + str(row)] = genre
+            break
+
+    wb.save("movies.xlsx")
+    wb.close()
+
+
 
 frame = customtkinter.CTkFrame(master=root)
 frame.pack(pady=0, padx=0, fill="both", expand=True)
