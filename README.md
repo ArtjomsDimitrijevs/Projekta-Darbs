@@ -3,9 +3,9 @@
 Šis Python projekts ir izstrādāts, lai ļautu lietotājam iegūt informāciju par filmām vai seriāliem, izmantojot Open Movie Database (OMDb) API. Projekts izmanto Tkinter bibliotēku, lai piedāvātu lietotājam draudzīgu saskarni, kur var ievadīt filmas nosaukumu un saņemt detalizētu informāciju par to.
 ## Projekta galvenie uzdevumi ir:
 
-### Iegūt Filmu Informāciju: Lietotājs ievada filmas nosaukumu, un programma izmanto OMDb API, lai iegūtu nosaukumu, izlaišanas gadu, ilgumu, žanru, sižetu un reitingu.
-### Atvērt Treileri IMDb: Lietotājs var atvērt filmas treileri tieši no IMDb, izmantojot Selenium bibliotēku.
-### Saglabāt Informāciju Excel Dokumentā: Projekts ļauj saglabāt filmu informāciju Excel dokumentā, lai lietotājs varētu sekmīgi uzglabāt skatītās filmas.
+Iegūt Filmu Informāciju: Lietotājs ievada filmas nosaukumu, un programma izmanto OMDb API, lai iegūtu nosaukumu, izlaišanas gadu, ilgumu, žanru, sižetu un reitingu.
+Atvērt Treileri IMDb: Lietotājs var atvērt filmas treileri tieši no IMDb, izmantojot Selenium bibliotēku.
+Saglabāt Informāciju Excel Dokumentā: Projekts ļauj saglabāt filmu informāciju Excel dokumentā, lai lietotājs varētu sekmīgi uzglabāt skatītās filmas.
 ## Izmantotās Python Bibliotēkas
 **customtkinter**: Pielāgota Tkinter bibliotēka, kas nodrošina modernu saskarni un dizainu.
 **tkinter.messagebox**: Tkinter iebūvētā bibliotēka, izmantojama paziņojumu logiem.
