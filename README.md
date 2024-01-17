@@ -7,8 +7,8 @@ Iegūt Filmu Informāciju: Lietotājs ievada filmas nosaukumu, un programma izma
 Atvērt Treileri IMDb: Lietotājs var atvērt filmas treileri tieši no IMDb, izmantojot Selenium bibliotēku.
 Saglabāt Informāciju Excel Dokumentā: Projekts ļauj saglabāt filmu informāciju Excel dokumentā, lai lietotājs varētu sekmīgi uzglabāt skatītās filmas.
 ## Izmantotās Python Bibliotēkas
-**customtkinter**: Pielāgota Tkinter bibliotēka, kas nodrošina modernu saskarni un dizainu.
-**tkinter.messagebox**: Tkinter iebūvētā bibliotēka, izmantojama paziņojumu logiem.
+**customtkinter**: Pielāgota Tkinter bibliotēka, kas nodrošina modernu saskarni un dizainu.  
+**tkinter.messagebox**: Tkinter iebūvētā bibliotēka, izmantojama paziņojumu logiem.    
 **selenium**: Bibliotēka pārlūkprogrammas darbības automatizācijai treilera atvēršanai IMDb.
 **requests**: Izmantots, lai veiktu HTTP pieprasījumus OMDb API.
 **openpyxl**: Bibliotēka darbam ar Excel failiem, izmantota, lai saglabātu filmu informāciju.
