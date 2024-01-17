@@ -80,7 +80,6 @@ def open_trailer():
 
 def save_to_excel():
     global title, year, runtime, genre, plot, first_rating
-    #print(title, year, runtime, genre, first_rating)
     filepath = "movies.xlsx"
     fullpath = os.path.join(os.path.dirname(__file__), filepath)
 
@@ -114,7 +113,6 @@ def save_to_excel():
     wb.close()
 
 
-
 frame = customtkinter.CTkFrame(master=root)
 frame.pack(pady=0, padx=0, fill="both", expand=True)
 
@@ -139,6 +137,5 @@ TrailerButton.pack_forget()
 ExcelWriteButton = customtkinter.CTkButton(master=frame, text="Save to Excel document", command=save_to_excel)
 ExcelWriteButton.pack_forget()
 
-### TO_DO: write info about movie in excel document to watch it later
 
 root.mainloop()
