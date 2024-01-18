@@ -20,4 +20,7 @@
 **Parādīt Informāciju un Opcijas**: Parādīsies informācija par filmu, un būs opcijas atvērt treileri vai saglabāt informāciju Excel dokumentā.  
 **Atvērt Treileri IMDb**: Opcija atver treileri IMDb vietnē, lietojot pārlūkprogrammu.  
 **Saglabāt Excel Dokumentā**: Opcija saglabāt iegūto informāciju Excel dokumentā "movies.xlsx".  
-**Paziņojumi par Kļūdām**: Ja filma netiek atrasta, parādīsies kļūdas paziņojums.  
+**Paziņojumi par Kļūdām**: Ja filma netiek atrasta, parādīsies kļūdas paziņojums.
+
+## Darbība
+Lai izmantotu šo programmu, ievadiet filmas nosaukumu angļu valodā un nospiediet "Find". Pēc tam parādīsies informācija par filmu. Jūs varat atvērt treileri IMDb vai saglabāt informāciju Excel dokumentā, izmantojot atbilstošās pogas. Paziņojumi par kļūdām parādīsies, ja filma netiek atrasta vai ir problēmas ar datu saglabāšanu. Treilera atvēršanai un datu saglabāšanai nepieciešams interneta pieslēgums.
