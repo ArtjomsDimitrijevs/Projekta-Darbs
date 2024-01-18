@@ -15,7 +15,7 @@
 **os**: Bibliotēka darbam ar operētājsistēmu, izmantota, lai pārbaudītu vai izveidotu Excel failu.  
 
 ## Programmas Lietošana
-**Ievadīt Filmas Nosaukumu**: Ievadīt pilno filmas nosaukumu angļu valodā.  
+**Ievadīt Filmas Nosaukumu**: Ievadīt pilno filmas nosaukumu angļu valodā(Piem. Star Wars episode I, Green book, migration, Harry Potter and the Order of the Phoenix utt.).  
 **Noklikšķināt uz "Find"**: Noklikšķināt uz pogas "Find", lai iegūtu informāciju par filmu.  
 **Parādīt Informāciju un Opcijas**: Parādīsies informācija par filmu, un būs opcijas atvērt treileri vai saglabāt informāciju Excel dokumentā.  
 **Atvērt Treileri IMDb**: Opcija atver treileri IMDb vietnē, lietojot pārlūkprogrammu.  
